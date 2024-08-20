@@ -25,7 +25,7 @@ services:
     network_mode: "host"
     environment:
       TZ: "America/Santiago"
-      TOML_FILE: "../../donuts_configs/gavin_chile.toml"
+      TOML_FILE: "gavin_chile.toml"
     volumes:
       - z:/RAW/DonutsCalibration:/voyager_calibration
       - z:/RAW/DonutsLog:/voyager_log

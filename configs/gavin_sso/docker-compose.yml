@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   db:
-    image: mysql:8.0.33
+    image: mysql:8.0.25
     container_name: db
     restart: always
     secrets:
@@ -10,7 +10,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: /run/secrets/mysql_root
       MYSQL_DATABASE: donuts
-      TZ: "Europe/London"
+      TZ: "Australia/NSW"
     volumes:
       - mysql-data:/var/lib/mysql
       - ../../mysql-init.sql:/docker-entrypoint-initdb.d/mysql-init.sql
@@ -24,13 +24,13 @@ services:
     image: voyager_donuts
     network_mode: "host"
     environment:
-      TZ: "Europe/London"
-      TOML_FILE: "../../donuts_configs/james_test.toml"
+      TZ: "Australia/NSW"
+      TOML_FILE: "gavin_sso.toml"
     volumes:
-      - c:/Users/user/Documents/Voyager/DonutsCalibration:/voyager_calibration
-      - c:/Users/user/Documents/Voyager/DonutsLog:/voyager_log
-      - c:/Users/user/Documents/Voyager/DonutsData:/voyager_data
-      - c:/Users/user/Documents/Voyager/DonutsReference:/voyager_reference
+      - c:/Users/itelescope/Dropbox/MoanaSSO/DonutsCalibration:/voyager_calibration
+      - c:/Users/itelescope/Dropbox/MoanaSSO/DonutsLog:/voyager_log
+      - c:/Users/itelescope/Dropbox/MoanaSSO:/voyager_data
+      - c:/Users/itelescope/Dropbox/MoanaSSO/DonutsReference:/voyager_reference
 
 volumes:
   mysql-data:
